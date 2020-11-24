@@ -5,17 +5,28 @@
          version="3.1">
     <!--        deployment descriptor (DD)-->
 
+<!--    <servlet>-->
+<!--        <servlet-name>Index</servlet-name>-->
+<!--        <servlet-class>by.jrr.jis.jis5servlet.myservlets.IndexServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>Index</servlet-name>-->
+<!--        <url-pattern>/index</url-pattern>-->
+<!--    </servlet-mapping>-->
+
     <servlet>
-        <servlet-name>Index</servlet-name>
-        <servlet-class>by.jrr.jis.jis5servlet.myservlets.IndexServlet</servlet-class>
+        <servlet-name>RequestDispatcher</servlet-name>
+        <servlet-class>by.jrr.jis.school.controllers.GlobalController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Index</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <servlet-name>AllStudents</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
+    
+    
     <servlet>
         <servlet-name>AllStudents</servlet-name>
-        <servlet-class>by.jrr.jis.jis5servlet.myservlets.AllStudents</servlet-class>
+        <servlet-class>by.jrr.jis.school.controllers.AllStudents</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AllStudents</servlet-name>
@@ -23,7 +34,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AddStudent</servlet-name>
-        <servlet-class>by.jrr.jis.jis5servlet.myservlets.AddStudent</servlet-class>
+        <servlet-class>by.jrr.jis.school.controllers.AddStudent</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStudent</servlet-name>
@@ -31,7 +42,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>StudentCard</servlet-name>
-        <servlet-class>by.jrr.jis.jis5servlet.myservlets.StudentCard</servlet-class>
+        <servlet-class>by.jrr.jis.school.controllers.StudentCard</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentCard</servlet-name>

@@ -1,4 +1,4 @@
-package by.jrr.jis.jis5servlet.bean;
+package by.jrr.jis.school.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
