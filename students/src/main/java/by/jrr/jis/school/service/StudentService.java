@@ -1,6 +1,7 @@
 package by.jrr.jis.school.service;
 
 import by.jrr.jis.school.bean.Student;
+import by.jrr.jis.school.bean.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +11,11 @@ import java.util.Map;
 public class StudentService {
 
     public static List<Student> findAll() {
-        return Student.total;
+        return StudentRepository.total;
     }
 
     public static Student findById(int id) {
-        return Student.total.get(id);
+        return StudentRepository.total.get(id);
     }
 
     public static void saveStudent(Map<String, String[]> params) {
@@ -27,21 +28,21 @@ public class StudentService {
         } catch (Exception ex) {
         }
 
-        Student student = new Student(Student.total.size(), name, lastName, age);
-        Student.total.add(student);
+        Student student = new Student(StudentRepository.total.size(), name, lastName, age);
+        StudentRepository.total.add(student);
     }
 
     public static void saveStudent(String name, String lastName, int age) {
-        Student student = new Student(Student.total.size(), name, lastName, age);
-        Student.total.add(student);
+        Student student = new Student(StudentRepository.total.size(), name, lastName, age);
+        StudentRepository.total.add(student);
     }
 
     public List<Student> findAllApi() {
-        return Student.total;
+        return StudentRepository.total;
     }
 
     public Student findByIdApi(int id) {
-        return Student.total.get(id);
+        return StudentRepository.total.get(id);
     }
 
     public void saveStudentApi(Map<String, String[]> params) {
@@ -54,31 +55,31 @@ public class StudentService {
         } catch (Exception ex) {
         }
 
-        Student student = new Student(Student.total.size(), name, lastName, age);
-        Student.total.add(student);
+        Student student = new Student(StudentRepository.total.size(), name, lastName, age);
+        StudentRepository.total.add(student);
     }
 
     public void saveStudentApi(String name, String lastName, int age) {
-        Student student = new Student(Student.total.size(), name, lastName, age);
-        Student.total.add(student);
+        Student student = new Student(StudentRepository.total.size(), name, lastName, age);
+        StudentRepository.total.add(student);
     }
 
     public Student saveStudentApi(Student student) {
-        student.setId(Student.total.size());
-        Student.total.add(student);
+        student.setId(StudentRepository.total.size());
+        StudentRepository.total.add(student);
         return student;
     }
 
     public Student updateStudentApi(int id, Student student) {
-        Student.total.get(id); //todo validate id
+        StudentRepository.total.get(id); //todo validate id
         student.setId(id);
-        Student.total.add(id, student);
+        StudentRepository.total.add(id, student);
         return student;
     }
 
     public Student deleteById(int id) {
-        Student student = Student.total.get(id); //todo validate id
-        Student.total.remove(id);
+        Student student = StudentRepository.total.get(id); //todo validate id
+        StudentRepository.total.remove(id);
         return student;
     }
 }

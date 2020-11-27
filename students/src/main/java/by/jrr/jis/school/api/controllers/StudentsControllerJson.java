@@ -10,32 +10,33 @@ import javax.servlet.http.HttpServlet;
 import java.util.List;
 
 @RestController
-public class StudentsController extends HttpServlet {
+@RequestMapping(value = "/json-api", produces = {MediaType.APPLICATION_JSON_VALUE})
+public class StudentsControllerJson extends HttpServlet {
 
     @Autowired
     StudentService studentService;
 
-    @GetMapping(value = "/api/students", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/students")
     public List<Student> getStudents() {
         return StudentService.findAll();
     }
 
-    @PostMapping(value = "/api/students", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(value = "/students")
     public Student addStudent(@RequestBody Student student) {
         return studentService.saveStudentApi(student);
     }
 
-    @GetMapping(value = "/api/student/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/student/{id}")
     public Student getStudentById(@PathVariable int id) {
         return StudentService.findById(id);
     }
 
-    @PutMapping(value = "/api/student/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PutMapping(value = "/student/{id}")
     public Student getStudentById(@PathVariable int id, @RequestBody Student student) {
         return studentService.updateStudentApi(id, student);
     }
 
-    @DeleteMapping(value = "/api/student/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @DeleteMapping(value = "/student/{id}")
     public Student deleteStudentById(@PathVariable int id) {
         return studentService.deleteById(id);
     }

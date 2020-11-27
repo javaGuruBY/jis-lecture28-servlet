@@ -12,7 +12,14 @@
 
     <context:component-scan base-package="by.jrr" />
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.Jaxb2CollectionHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
@@ -22,5 +29,4 @@
             <value>.jsp</value>
         </property>
     </bean>
-
 </beans>
