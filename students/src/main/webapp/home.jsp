@@ -8,8 +8,13 @@
     <title>School</title>
 </head>
 <body align=center>
-    <h1> Cool School </h1>
+    <h1> My Cool School </h1>
     <a href="/school/students">all students</a> |
     <a href="/school/students/add">add student</a>
+<p> Here goes message:
+<%
+    out.print(request.getAttribute("message"));
+%>
+</p>
 </body>
 </html>

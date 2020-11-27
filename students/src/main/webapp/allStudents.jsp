@@ -9,6 +9,11 @@
 </head>
 <body align=center>
 <h1> Max changed servlets </h1>
+<p> Here goes message:
+    <%
+        out.print(request.getAttribute("message"));
+    %>
+</p>
 <table align=center>
     <tr>
             <th>id</th>
@@ -23,7 +28,7 @@
             out.print("" +
                     "    <tr>\n" +
                             "        <td>" + s.getId() + "</td>\n" +
-                            "        <td><a href=\"/school/student?id="+(s.getId()) +"\">" + s.getName() + "</a></td>\n" +
+                            "        <td><a href=\"/school/student/"+(s.getId()) +"\">" + s.getName() + "</a></td>\n" +
                             "        <td>" + s.getLastName() + "</td>\n" +
                             "        <td>" + s.getAge() + "</td>\n" +
                             "    </tr>\n");

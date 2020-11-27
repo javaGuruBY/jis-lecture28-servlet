@@ -5,6 +5,11 @@
     <title>timer</title>
 </head>
 <body align=center>
+<p> Here goes message:
+    <%
+        out.print(request.getAttribute("message"));
+    %>
+</p>
 <h1> time is passing </h1>
 <form method=post >
     <input name=name placeholder=name type=text> <br />

@@ -7,6 +7,11 @@
     <title>timer</title>
 </head>
 <body align=center>
+<p> Here goes message:
+    <%
+        out.print(request.getAttribute("message"));
+    %>
+</p>
 <h1> This one will never change! </h1>
 <table align=center>
     <tr>

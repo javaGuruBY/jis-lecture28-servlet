@@ -1,24 +1,29 @@
 package by.jrr.jis.school.controllers;
 
 import by.jrr.jis.school.service.StudentService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
+@Controller
 public class AddStudent extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher view = request.getRequestDispatcher("/studentForm.jsp");
-        view.forward(request, response);
+    @GetMapping("/students/add")
+    public String doGet(Model model){
+        model.addAttribute("message", "Hello from spring MVC");
+        return "studentForm";
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        StudentService.saveStudent(req.getParameterMap());
-        resp.sendRedirect("/school/students");
+    @PostMapping("/students/add")
+    protected String doPost(@RequestParam String name,
+                          @RequestParam String lastName,
+                          @RequestParam int age) {
+        StudentService.saveStudent(name, lastName, age);
+        return "redirect: /school/students";
     }
 }
