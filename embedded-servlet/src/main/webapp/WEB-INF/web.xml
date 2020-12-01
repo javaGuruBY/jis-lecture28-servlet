@@ -1,0 +1,57 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <context-param>
+    <param-name>bossEmail</param-name>
+    <param-value>maksim.shelkovich@jrr.by</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>
+      by.jrr.jis.embedded.servlet.listeners.MyServletContextListener
+    </listener-class>
+  </listener>
+
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>by.jrr.jis.embedded.servlet.HomeServlet</servlet-class>
+    <init-param>
+      <param-name>adminEmail</param-name>
+      <param-value>info@jrr.by</param-value>
+    </init-param>
+
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Welcome</servlet-name>
+    <servlet-class>by.jrr.jis.embedded.servlet.WelkomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Welcome</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>JspSyntax</servlet-name>
+    <servlet-class>by.jrr.jis.embedded.servlet.JspSyntax</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JspSyntax</servlet-name>
+    <url-pattern>/jsp</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
