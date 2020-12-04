@@ -36,10 +36,14 @@ public class HomeServlet extends HttpServlet {
             String name = req.getParameter("name");
             session.setAttribute("name", name);
             req.setAttribute("name", name);
+            session.setAttribute("homePageVisited", true);
         } else {
             String name = (String) req.getSession().getAttribute("name");
             req.setAttribute("name", name);
         }
+
+        //to demo filter
+        session.setAttribute("homePageVisited", true);
 
         HttpSession sessionIfIsInCookie = req.getSession(false); //not create session if not in cookie
 
